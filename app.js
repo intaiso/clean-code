@@ -18,6 +18,7 @@ var completedTasksHolder=document.getElementById("completed-tasks");//completed-
 var createNewTaskElement=function(taskString){
 
   var listItem=document.createElement("li");
+  var itemWrapper=document.createElement("article");
 
   //input (checkbox)
   var checkBox=document.createElement("input");//checkbx
@@ -49,11 +50,12 @@ var createNewTaskElement=function(taskString){
 
 
   //and appending.
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
+  listItem.appendChild(itemWrapper);
+  itemWrapper.appendChild(checkBox);
+  itemWrapper.appendChild(label);
+  itemWrapper.appendChild(editInput);
+  itemWrapper.appendChild(editButton);
+  itemWrapper.appendChild(deleteButton);
   return listItem;
 }
 
@@ -81,7 +83,6 @@ var editTask=function(){
 
 
   var listItem=this.parentNode;
-
   var editInput=listItem.querySelector('input[type=text]');
   var label=listItem.querySelector("label");
   var editBtn=listItem.querySelector(".edit");
